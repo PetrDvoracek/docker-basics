@@ -1,6 +1,6 @@
 # docker-basics
 
-For each line in Dockerfile, new container with process is created - use `&&` instead of `newline` as much as possible
+For each line in Dockerfile, new container with process is created - use `&&` instead of `newline` as much as possible. This is done because of caching so you are able to start the container faster.
 
 ```
 //good
@@ -14,3 +14,5 @@ RUN npm install --production --silent
 RUN apk del make gcc g++ python
 ```
 
+To remove old and unused images, use `docker image prune`
+It is recommended to build new image with `--rmi` parametter (cleanup).
