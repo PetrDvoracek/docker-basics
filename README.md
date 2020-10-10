@@ -19,6 +19,8 @@ It is recommended to build new image with `--rmi` parametter (cleanup).
 
 
 # Run Xserver in Docker
+
+To enable it you must run `xhost +local:root` right on the host [source](http://wiki.ros.org/docker/Tutorials/GUI)
 ```
 # Dockerfile
 FROM debian
