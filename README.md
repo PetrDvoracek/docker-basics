@@ -16,3 +16,18 @@ RUN apk del make gcc g++ python
 
 To remove old and unused images, use `docker image prune`
 It is recommended to build new image with `--rmi` parametter (cleanup).
+
+
+# Run Xserver in Docker
+```
+# Dockerfile
+FROM debian
+RUN apt-get update
+RUN apt-get install -qqy x11-apps
+CMD xeyes
+
+```
+```
+# run.sh
+docker run -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=:2 xeyes
+```
